@@ -1,0 +1,24 @@
+# Preparation only. Import/apply this Blueprint manually after reviewing settings.
+services:
+  - type: web
+    name: student-wellness-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    autoDeployTrigger: "off"
+    buildCommand: pip install --no-cache-dir -r requirements.txt && python -m wellness.verify_model
+    startCommand: python -m uvicorn wellness.api:app --host 0.0.0.0 --port $PORT --no-access-log --limit-concurrency 16 --timeout-keep-alive 5 --timeout-graceful-shutdown 20
+    healthCheckPath: /health
+    envVars:
+      - key: WELLNESS_MODEL_PATH
+        value: models/model.joblib
+      - key: WELLNESS_METADATA_PATH
+        value: models/metadata.json
+      - key: WELLNESS_CORS_ORIGINS
+        sync: false
+      - key: PYTHONDONTWRITEBYTECODE
+        value: "1"
+      - key: OPENBLAS_NUM_THREADS
+        value: "1"
+      - key: OMP_NUM_THREADS
+        value: "1"

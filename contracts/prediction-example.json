@@ -1,0 +1,12 @@
+{
+  "Mental_Health_Score": 7.495947916666668,
+  "model_version": "experimental-v1-563a8c9c1bb9",
+  "disclaimer": "Experimental educational estimate; not a medical diagnosis.",
+  "score_reference": {
+    "observed_min": 3.6,
+    "observed_max": 9.4,
+    "definition_verified": false,
+    "description": "Observed training-target range; theoretical scale and scoring definition are unverified."
+  },
+  "warnings": []
+}

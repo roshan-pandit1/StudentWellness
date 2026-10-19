@@ -1,0 +1,311 @@
+{
+  "artifact_format": 1,
+  "model_info": {
+    "model_version": "experimental-v1-563a8c9c1bb9",
+    "disclaimer": "Experimental educational estimate; not a medical diagnosis.",
+    "feature_names": [
+      "Age",
+      "Gender",
+      "Country",
+      "Academic_Level",
+      "Most_Used_Platform",
+      "Purpose_Of_Use",
+      "Avg_Daily_Usage_Hours",
+      "Daily_Unlocks",
+      "Study_Hours",
+      "Physical_Activity_Hours",
+      "Sleep_Hours_Per_Night",
+      "Stress_Level"
+    ],
+    "numeric_ranges": {
+      "Age": {
+        "min": 18.0,
+        "max": 24.0
+      },
+      "Avg_Daily_Usage_Hours": {
+        "min": 1.0,
+        "max": 8.8
+      },
+      "Daily_Unlocks": {
+        "min": 62.0,
+        "max": 273.0
+      },
+      "Study_Hours": {
+        "min": 0.3,
+        "max": 8.3
+      },
+      "Physical_Activity_Hours": {
+        "min": -0.0,
+        "max": 3.8
+      },
+      "Sleep_Hours_Per_Night": {
+        "min": 3.6,
+        "max": 9.9
+      }
+    },
+    "categorical_values": {
+      "Gender": [
+        "Female",
+        "Male"
+      ],
+      "Country": [
+        "Afghanistan",
+        "Andorra",
+        "Argentina",
+        "Armenia",
+        "Australia",
+        "Austria",
+        "Azerbaijan",
+        "Bahamas",
+        "Bahrain",
+        "Bangladesh",
+        "Belgium",
+        "Bhutan",
+        "Bolivia",
+        "Bosnia",
+        "Brazil",
+        "Bulgaria",
+        "Canada",
+        "Chile",
+        "China",
+        "Colombia",
+        "Costa Rica",
+        "Croatia",
+        "Cyprus",
+        "Czech Republic",
+        "Denmark",
+        "Ecuador",
+        "Egypt",
+        "Estonia",
+        "Finland",
+        "France",
+        "Georgia",
+        "Germany",
+        "Ghana",
+        "Greece",
+        "Hong Kong",
+        "Hungary",
+        "India",
+        "Indonesia",
+        "Iraq",
+        "Ireland",
+        "Israel",
+        "Italy",
+        "Jamaica",
+        "Japan",
+        "Jordan",
+        "Kazakhstan",
+        "Kosovo",
+        "Kyrgyzstan",
+        "Latvia",
+        "Lebanon",
+        "Liechtenstein",
+        "Lithuania",
+        "Luxembourg",
+        "Malaysia",
+        "Maldives",
+        "Malta",
+        "Mexico",
+        "Moldova",
+        "Monaco",
+        "Montenegro",
+        "Morocco",
+        "Nepal",
+        "Netherlands",
+        "New Zealand",
+        "Nigeria",
+        "North Macedonia",
+        "Norway",
+        "Oman",
+        "Other",
+        "Pakistan",
+        "Panama",
+        "Paraguay",
+        "Peru",
+        "Philippines",
+        "Poland",
+        "Portugal",
+        "Qatar",
+        "Romania",
+        "Russia",
+        "San Marino",
+        "Serbia",
+        "Singapore",
+        "Slovakia",
+        "Slovenia",
+        "South Africa",
+        "South Korea",
+        "Spain",
+        "Sri Lanka",
+        "Sweden",
+        "Switzerland",
+        "Syria",
+        "Taiwan",
+        "Tajikistan",
+        "Thailand",
+        "Trinidad",
+        "Turkey",
+        "UAE",
+        "UK",
+        "USA",
+        "Ukraine",
+        "Uzbekistan",
+        "Vatican City",
+        "Venezuela",
+        "Vietnam"
+      ],
+      "Academic_Level": [
+        "Graduate",
+        "High School",
+        "Undergraduate"
+      ],
+      "Most_Used_Platform": [
+        "Facebook",
+        "Instagram",
+        "KakaoTalk",
+        "LINE",
+        "LinkedIn",
+        "Snapchat",
+        "TikTok",
+        "Twitter",
+        "VKontakte",
+        "WeChat",
+        "WhatsApp",
+        "YouTube"
+      ],
+      "Purpose_Of_Use": [
+        "Education",
+        "Entertainment",
+        "Networking",
+        "News"
+      ],
+      "Stress_Level": [
+        "High",
+        "Low",
+        "Medium",
+        "Very High"
+      ]
+    },
+    "score_reference": {
+      "observed_min": 3.6,
+      "observed_max": 9.4,
+      "definition_verified": false,
+      "description": "Observed training-target range; theoretical scale and scoring definition are unverified."
+    }
+  },
+  "dataset_provenance": {
+    "repository": "https://github.com/tanishq-latent/Mental-Health-Score",
+    "commit": "6a3111bf6dcd8a2d858a3c6377b35702c8453627",
+    "filename": "Student Social Media And Mental Health Impact.csv",
+    "url": "https://raw.githubusercontent.com/tanishq-latent/Mental-Health-Score/6a3111bf6dcd8a2d858a3c6377b35702c8453627/Student%20Social%20Media%20And%20Mental%20Health%20Impact.csv",
+    "retrieved_date": "2026-10-18",
+    "sha256": "32b542a497c39389735710fb4e2f43bdf444af5d9bacde6289801d201b6bebd3",
+    "target_definition_verified": false,
+    "limitations": "Reference README and notebook do not establish the target scoring instrument, theoretical scale, sampling, collection consent, or clinical validation. Dataset license not established; review rights before redistribution or deployment. Retrieved as reference data for local educational evaluation."
+  },
+  "data_audit": {
+    "raw_rows": 5000,
+    "valid_rows": 4978,
+    "invalid_rows": 20,
+    "invalid_reasons": {
+      "conflicting_duplicate_features": 10,
+      "invalid_feature_values": 10
+    },
+    "duplicates_removed": 2,
+    "invalid_policy": "drop",
+    "sha256": "32b542a497c39389735710fb4e2f43bdf444af5d9bacde6289801d201b6bebd3"
+  },
+  "target": "Mental_Health_Score",
+  "selected_model": "random_forest",
+  "training_code_sha256": "efb016ca3938e8492851a20fe127c67c0f8b4fbdaabfbeddc6b4a04dd2c9fca0",
+  "selection": {
+    "criterion": "lowest training cross-validation MAE",
+    "folds": 5,
+    "candidates": {
+      "dummy_mean": {
+        "cv_mae_mean": 1.062980304874094,
+        "cv_mae_std": 0.02031573357768457,
+        "fold_mae": [
+          1.0974185377268366,
+          1.071313028251548,
+          1.059923913352071,
+          1.0408587192080931,
+          1.045387325831922
+        ]
+      },
+      "ridge_0.1": {
+        "cv_mae_mean": 0.4666063462975262,
+        "cv_mae_std": 0.0035939848827297193,
+        "fold_mae": [
+          0.46818068193326356,
+          0.4626678022684865,
+          0.462611592922923,
+          0.467503643685672,
+          0.4720680106772858
+        ]
+      },
+      "ridge_1": {
+        "cv_mae_mean": 0.4676216830420147,
+        "cv_mae_std": 0.004117943282240443,
+        "fold_mae": [
+          0.4707473697422037,
+          0.46411907526663077,
+          0.4621295804122891,
+          0.4677846254038318,
+          0.4733277643851182
+        ]
+      },
+      "ridge_10": {
+        "cv_mae_mean": 0.4778391433057105,
+        "cv_mae_std": 0.005702546797727891,
+        "fold_mae": [
+          0.48309596008137723,
+          0.4729977283569434,
+          0.47111531959314507,
+          0.4761759960554629,
+          0.48581071244162366
+        ]
+      },
+      "random_forest": {
+        "cv_mae_mean": 0.3074723582347336,
+        "cv_mae_std": 0.0037752391604756286,
+        "fold_mae": [
+          0.3057026567378669,
+          0.31136955617443013,
+          0.3018366240473654,
+          0.3119675346180726,
+          0.30648541959593323
+        ]
+      }
+    }
+  },
+  "held_out_metrics": {
+    "mae": 0.29464311279451527,
+    "rmse": 0.4125210934099455,
+    "r2": 0.8982610855098534
+  },
+  "trained_at_utc": "2026-10-19T01:21:47.438887+00:00",
+  "package_versions": {
+    "scikit-learn": "1.6.1",
+    "numpy": "2.0.2",
+    "scipy": "1.13.1",
+    "joblib": "1.5.3"
+  },
+  "python_version": "3.9.6",
+  "smoke_run": false,
+  "split": {
+    "random_seed": 42,
+    "test_fraction": 0.2,
+    "train_rows": 3982,
+    "test_rows": 996,
+    "train_indices_sha256": "4127e5501e832e9021d119c2bab016936fe84446fddb575710ff4422a700adda",
+    "test_indices_sha256": "cf1d2c1454c60f562c44abc8c88838cb5a98679722f38ecfdbb7d7a95e47e8c1"
+  },
+  "limitations": [
+    "Target scoring definition, collection method, and clinical validity are unverified.",
+    "Support ranges and categories come only from training rows; combinations may still be out of distribution.",
+    "The held-out set is never used for fitting or model selection; exported pipeline remains fitted to training rows only.",
+    "Categorical encoder ignores unseen categories during CV; API explicitly rejects categories unseen in final training."
+  ],
+  "artifact_sha256": "cc11ff79be04abd371ec0667d976d555e7b69c5d2dca01628f31dd06079abea8"
+}

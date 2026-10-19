@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/tanishq-latent/Mental-Health-Score",
+  "commit": "6a3111bf6dcd8a2d858a3c6377b35702c8453627",
+  "filename": "Student Social Media And Mental Health Impact.csv",
+  "url": "https://raw.githubusercontent.com/tanishq-latent/Mental-Health-Score/6a3111bf6dcd8a2d858a3c6377b35702c8453627/Student%20Social%20Media%20And%20Mental%20Health%20Impact.csv",
+  "retrieved_date": "2026-10-18",
+  "sha256": "32b542a497c39389735710fb4e2f43bdf444af5d9bacde6289801d201b6bebd3",
+  "target_definition_verified": false,
+  "limitations": "Reference README and notebook do not establish the target scoring instrument, theoretical scale, sampling, collection consent, or clinical validation. Dataset license not established; review rights before redistribution or deployment. Retrieved as reference data for local educational evaluation."
+}
