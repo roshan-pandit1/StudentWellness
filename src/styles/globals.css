@@ -383,18 +383,40 @@ select.input { padding-right: 25px; }
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
 @media print {
-  :root, body { background: white; color: black; }
-  .container { width: 100%; }
+  @page { size: A4 portrait; margin: 15mm; }
+  :root, body { background: white; color: #25332e; }
+  body { min-width: 0; }
+  .container { width: 100%; max-width: none; }
   .site-header, .site-footer, .print-action, .results-actions, .skip-link { display: none !important; }
   .results-page { padding: 0; }
-  .card, .notice, .result-banner { box-shadow: none; break-inside: avoid; border-color: #aaa; }
-  .result-banner, .score-card { print-color-adjust: exact; }
+  .card, .notice, .result-banner { box-shadow: none; border-color: #aaa; }
+  .results-page { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .results-page p { orphans: 3; widows: 3; }
+  .results-page h2, .results-page h3, .results-page .section-heading { break-after: avoid; page-break-after: avoid; }
+  .score-card, .habit-card, .chart-card, .reflection-card, .notice, .result-banner, .suggestion {
+    break-inside: avoid; page-break-inside: avoid;
+  }
   .results-heading h1 { font-size: 26px; }
-  .habit-grid { grid-template-columns: repeat(5,1fr); }
+  .habit-grid { grid-template-columns: repeat(5,minmax(0,1fr)); gap: 8px; }
   .habit-card { padding: 12px; }
-  .suggestion { break-inside: avoid; }
+  .score-card { flex-direction: row; gap: 20px; padding: 20px; }
+  .score-copy { min-width: 0; }
+  .score-copy h2 { font-size: 22px; }
+  .results-page .notice { overflow-wrap: anywhere; }
+  /* Let the long suggestions card paginate, keeping each suggestion together. */
   .suggestion-list { padding: 0 15px; }
-  .results-columns { grid-template-columns: 1fr 1fr; }
+  /* Normal block flow avoids grid fragmentation and leaves the chart full A4 width. */
+  .results-columns { display: block; }
+  .chart-card, .reflection-card { width: 100%; max-width: 100%; padding: 20px; }
+  .reflection-card { display: block; margin-top: 16px; }
+  /* Reserve chart height even when print starts before ResizeObserver updates.
+     Scale the SVG viewBox instead of letting screen-measured pixel widths overflow. */
+  .habit-chart { height: 260px; max-width: 100%; }
+  .habit-chart .recharts-responsive-container,
+  .habit-chart .recharts-wrapper { width: 100% !important; max-width: 100%; height: 260px !important; }
+  .habit-chart .recharts-surface { display: block; width: 100%; max-width: 100%; height: 100%; }
+  .habit-chart .recharts-tooltip-wrapper { display: none !important; }
+  .chart-card .chart-note { font-size: 11px; }
   a { text-decoration: underline; }
 }
 .form-fields { border: 0; padding: 0; margin: 0; min-width: 0; }
